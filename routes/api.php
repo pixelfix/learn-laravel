@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -15,4 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('register', [RegisterController::class, 'store'])->name('register');
+Route::post('register', [RegisterController::class, 'store'])->middleware(['auth:sanctum'])->name('register');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+
