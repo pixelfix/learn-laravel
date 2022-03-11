@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Notifications\WelcomeEmail;
+use App\Notifications\WelcomeEmailNotification;
 use App\Services\UserService;
 use Illuminate\Http\Request;
 
