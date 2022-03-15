@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SalesLeadController;
+use App\Models\Customer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,8 @@ use Illuminate\Support\Facades\Route;
 Route::post('register', [RegisterController::class, 'store'])->name('register');
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
+// Route::get('customers', [CustomerController::class, 'index'])->middleware(['auth:sanctum', 'can:viewAny,App\Models\Customer'])->name('customers.index');
+Route::get('customers', [CustomerController::class, 'index'])->middleware(['auth:sanctum'])->can('viewAny', Customer::class)->name('customers.index');
 Route::post('customers', [CustomerController::class, 'store'])->name('customers.store');
 
 Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
