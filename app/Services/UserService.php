@@ -13,6 +13,7 @@ class UserService
             'name' => $userDetails['name'],
             'email' => $userDetails['email'],
             'password' => bcrypt($userDetails['password']),
+            'role_id' => 1,
         ]);
 
         UserRegisterEvent::dispatch($user);
