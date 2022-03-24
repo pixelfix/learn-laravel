@@ -2,16 +2,12 @@
 
 namespace App\Rules;
 
+use App\Enums\AddressTypesEnum;
 use Illuminate\Contracts\Validation\Rule;
 use Illuminate\Support\Arr;
 
 class AllowedAddressTypes implements Rule
 {
-    private const ALLOWED_ADDRESS_TYPES = [
-        'Billing',
-        'Delivery',
-        'Postal',
-    ];
     /**
      * Create a new rule instance.
      *
@@ -29,9 +25,10 @@ class AllowedAddressTypes implements Rule
      * @param  mixed  $value
      * @return bool
      */
-    public function passes($attribute, $value)
+    public function passes($attribute, $value): bool
     {
-        return in_array($value, self::ALLOWED_ADDRESS_TYPES);
+        // return in_array($value, self::ALLOWED_ADDRESS_TYPES);
+        return AddressTypesEnum::hasValue($value);
     }
 
     /**
