@@ -15,7 +15,7 @@ class EnumTest extends TestCase
 
         // AddressTypesEnum::cases();
 
-        dd(AddressTypesEnum::hasValue('b'));
+        // dd(AddressTypesEnum::hasValue('b'));
     }
 
 }
